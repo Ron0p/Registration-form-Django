@@ -1,0 +1,91 @@
+{% extends 'registration/base.html' %}
+{% block css %} /* Styles for form inputs */ input[type="text"],
+input[type="tel"], input[type="email"], input[type="password"] { display: block;
+width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc;
+border-radius: 4px; box-sizing: border-box; } /* Styles for form labels */ label
+{ font-weight: bold; } /* Styles for form submit button */ button[type="submit"]
+{ background-color: #4CAF50; color: white; padding: 8px 16px; border: none;
+border-radius: 4px; cursor: pointer; } /* Responsive styles for form */ @media
+screen and (max-width: 768px) { /* Reduce width of form inputs on smaller
+screens */ input[type="text"], input[type="tel"], input[type="email"],
+input[type="password"] { width: 80%; } /* Center form inputs on smaller screens
+*/ input[type="text"], input[type="tel"], input[type="email"],
+input[type="password"], label { margin: 0 auto; } /* Increase font size of form
+labels on smaller screens */ label { font-size: 1.2rem; } } @media screen and
+(max-width: 480px) { /* Reduce width of form inputs on even smaller screens */
+input[type="text"], input[type="tel"], input[type="email"],
+input[type="password"] { width: 100%; } /* Reduce font size of form labels on
+even smaller screens */ label { font-size: 1rem; } } {% endblock %} 
+{% block content %}
+<div class="container my-3">
+  <h2>Registration Form</h2>
+  <form action="{% url 'register' %}" method="post">
+    {% csrf_token %}
+    <div>
+      <label for="id_name">Name:</label>
+      <input
+        type="text"
+        name="name"
+        id="id_name"
+        placeholder="Enter Your Name"
+      />
+    </div>
+    <div>
+      <label for="id_mobile">Mobile:</label>
+      <input
+        type="tel"
+        name="mobile"
+        id="id_mobile"
+        placeholder="Enter Your mobile number"
+      />
+    </div>
+    <div>
+      <label for="id_email">Email:</label>
+      <input
+        type="email"
+        name="email"
+        id="id_email"
+        placeholder="Enter Your email "
+      />
+    </div>
+    <div>
+      <label for="id_password">Password:</label>
+      <input
+        type="password"
+        name="password"
+        id="id_password"
+        placeholder="Enter Your password"
+      />
+    </div>
+    <div>
+      <label for="id_address">Address:</label>
+      <input
+        type="text"
+        name="address"
+        id="id_address"
+        placeholder="Enter Your address"
+      />
+    </div>
+    <div>
+      <label for="id_state">State:</label>
+      <input
+        type="text"
+        name="state"
+        id="id_state"
+        placeholder="Enter Your state"
+      />
+    </div>
+    <div>
+      <label for="id_country">Country:</label>
+      <input
+        type="text"
+        name="country"
+        id="id_country"
+        placeholder="Enter Your country"
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Register</button>
+  </form>
+</div>
+{% endblock %}
